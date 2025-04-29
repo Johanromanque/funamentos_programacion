@@ -1,17 +1,19 @@
-package sumativasiete;
+package formativasiete;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 
-public class SumativaSiete {
+public class Formativasiete {
+    // variables estaticas para cantidad y ingresos, ademas de entradas disponibles.
     static int totalEntradasVendidas = 0;
     static int ingresosTotales = 0;
     static int entradasVIPDisponibles = 10;
     static int entradasPlateaDisponibles = 20;
     static int entradasBalconDisponibles = 30;
-
+    
+    // listas para para guaradar datos de de venta.
     static ArrayList<String> ubicaciones = new ArrayList<>();
     static ArrayList<Integer> preciosBase = new ArrayList<>();
     static ArrayList<Integer> descuentosAplicados = new ArrayList<>();
@@ -20,7 +22,8 @@ public class SumativaSiete {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcion;
-
+        
+        // menu (do-while) para que se repita hasta que el usuario quiera salir.
         do {
             mostrarMenu();
             System.out.print("Seleccione una opción: ");
@@ -65,7 +68,8 @@ public class SumativaSiete {
         System.out.println("2. Platea ($70)");
         System.out.println("3. Balcón ($50)");
         int tipoZona = sc.nextInt();
-
+        
+        //variables locales para guardar ubicacion y precio base.
         String ubicacion = "";
         int precioBase = 0;
 
@@ -75,6 +79,7 @@ public class SumativaSiete {
         int edad;
         String esEstudiante;
 
+        // elegir zona (ubicacion)
         switch (tipoZona) {
             case 1:
                 if (entradasVIPDisponibles <= 0) {
@@ -139,6 +144,7 @@ public class SumativaSiete {
         System.out.println("\nEntrada vendida exitosamente.");
     }
 
+    // metodo verResumenVentas(), muestra total entradas vendidas y cuantas quedan.
     public static void verResumenVentas() {
         System.out.println("\n--- Resumen de Ventas ---");
         System.out.println("Total entradas vendidas: " + totalEntradasVendidas);
@@ -147,6 +153,7 @@ public class SumativaSiete {
         System.out.println("Entradas Balcón disponibles: " + entradasBalconDisponibles);
     }
 
+    // metodo generarBoleta, recorre entradas vendidas
     public static void generarBoleta() {
         System.out.println("\n------------------------------------");
         System.out.println("          Teatro Moro               ");
@@ -163,6 +170,7 @@ public class SumativaSiete {
         }
     }
 
+    // metodo para mostrar cuanto dinero se ha acumulado.
     public static void calcularIngresosTotales() {
         System.out.println("\n--- Ingresos Totales ---");
         System.out.println("Ingresos acumulados: $" + ingresosTotales);
